@@ -8,12 +8,11 @@
 
 <ion-content padding>
 	<ion-card>
-        <ion-card-content>
-          <img [src]="base64Image" *ngIf="base64Image" class = "dp"/>
-        	<ion-row>
-          		<ion-col col-8>Cliente da Silva Sauro
-          		</ion-col>
-          		<ion-col align-self-right text-center>
+        <img [src]="base64Image" *ngIf="base64Image" class = "dp"/>
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-8>Cliente da Silva Sauro </ion-col>
+          	<ion-col align-self-right text-center>
           			<button ion-button color="primary" (click)="accessGallery()" clear>
 						<ion-icon name="camera"></ion-icon>
     				</button>

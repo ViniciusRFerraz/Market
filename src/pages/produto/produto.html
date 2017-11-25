@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card>
+    	<ion-card-content>
+    		<ion-list>
+    			<ion-item>
+          			<img src="../../../assets/imgs/panela.png" class = "produtoimg"/>
+        		</ion-item>
+        		<ion-item class = "small">
+            		Panela de Pressão Amazonasbr
+            		<br> ID : 28312131
+        		</ion-item>
+        	</ion-list>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-item>
+    	<ion-label floating>Categoria</ion-label>
+    	<ion-select [(ngModel)]="tpy">
+      		<ion-option value="eletronico">Eletrônico</ion-option>
+      		<ion-option value="eletrodomestico">Eletrodoméstico</ion-option>
+      		<ion-option value="cozinha">Cozinha</ion-option>
+      		<ion-option value="informática">Informática</ion-option>
+		</ion-select>
+  	</ion-item>
+
+  <ion-item>
+    <ion-textarea [(ngModel)]="texto" ></ion-textarea>
+    <ion-label floating>Digite a descrição do produto</ion-label>
+  </ion-item>
+
+</ion-content>

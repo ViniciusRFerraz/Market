@@ -1,30 +1,26 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { PedidosPage } from '../pedidos/pedidos';
+import { UserloginPage } from '../userlogin/userlogin';
+ 
 
-/**
- * Generated class for the CarrinhoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-carrinho',
   templateUrl: 'carrinho.html',
 })
-export class CarrinhoPage {
+
+  export class CarrinhoPage {
 	quantidade: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CarrinhoPage');
   }
 
-  LetsGoNovoCompra(){
-    this.navCtrl.push(HomePage);
+  LetsGoCompra(){
+    this.navCtrl.setRoot(UserloginPage);
+    this.navCtrl.push(PedidosPage);  
   }
-
-
 }
+
