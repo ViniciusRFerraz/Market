@@ -1,5 +1,4 @@
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-<<<<<<< HEAD
 import { BrowserModule }           from '@angular/platform-browser';
 import { ErrorHandler, NgModule }  from '@angular/core';
 import { SplashScreen }            from '@ionic-native/splash-screen';
@@ -55,7 +54,7 @@ import { DetalhesPage } from '../pages/detalhes/detalhes';
     EmpresaPerfilPage,
     EmpresaAtualizarPage,
     ParallaxDirective,
-    ProdutoPage
+    ProdutoPage,
     DetalhesPage
   ],
   imports: [
