@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Bem-Vindo(a)</ion-title>
+    <ion-title>Pedidos da Empresa</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  nao utilizado
+<ion-content padding  class="card-background-page">
+  <ion-list>
+		<ion-card>
+    		<img src= "../../../assets/imgs/PedidoPendente.png"/>
+			<div class="card-title"><font color= "DarkSlateGray"> Pedido 12391403</font></div>
+    		<div class="card-subtitle">
+    			<p><font color= "DarkSlateGray">Em 20/11/2017 às 11:57</font>
+    			<p><font color= "DarkSlateGray">R$: 132,40</font>
+				<p><font color= "DarkSlateGray">Status: Encaminhado</font>
+				<p><button ion-button (click)="showDetails()" color="dark" clear><u>Detalhes</u></button>
+			</div>
+		</ion-card>
+  </ion-list>
 </ion-content>
