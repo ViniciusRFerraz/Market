@@ -5,13 +5,14 @@ import { EmpresaNovoProdutoPage } from '../empresa-novo-produto/empresa-novo-pro
 import { EmpresaPerfilPage } from '../empresa-perfil/empresa-perfil';
 import { EmpresaAtualizarPage } from '../empresa-atualizar/empresa-atualizar';
 import { HomePage } from '../home/home';
-
+import { DetalhesPage } from '../detalhes/detalhes';
 
 /**
- * Generated class for the EmpresaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+  *
+  *
+  *     PAGINA RESPONSÁVEL PELOS Detalhes DOS PEDIDOS QUE A EMPRESA RECEBEU QUANDO O CLIENTE CONFIRMOU O PEDIDO
+  *
+  *
  */
 
 @IonicPage()
@@ -28,4 +29,10 @@ export class EmpresaPage {
     console.log('ionViewDidLoad EmpresaPage');
   }
 
+  showDetails() {
+      this.navCtrl.push(DetalhesPage);
+
+
+
+  }
 }

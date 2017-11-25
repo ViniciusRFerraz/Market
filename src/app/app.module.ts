@@ -18,6 +18,7 @@ import { EmpresaPerfilPage } from '../pages/empresa-perfil/empresa-perfil';
 import { EmpresaAtualizarPage } from '../pages/empresa-atualizar/empresa-atualizar';
 import { Camera } from '@ionic-native/camera';
 import { ParallaxDirective } from '../directives/parallax/parallax';
+import { DetalhesPage } from '../pages/detalhes/detalhes';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ParallaxDirective } from '../directives/parallax/parallax';
     EmpresaNovoProdutoPage,
     EmpresaPerfilPage,
     EmpresaAtualizarPage,
-    ParallaxDirective
+    ParallaxDirective,
+    DetalhesPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { ParallaxDirective } from '../directives/parallax/parallax';
     EmpresaProdutosPage,
     EmpresaNovoProdutoPage,
     EmpresaPerfilPage,
-    EmpresaAtualizarPage
+    EmpresaAtualizarPage,
+    DetalhesPage
   ],
   providers: [
     StatusBar,

@@ -6,6 +6,7 @@ import { EmpresaNovoProdutoPage } from '../empresa-novo-produto/empresa-novo-pro
 import { EmpresaAtualizarPage } from '../empresa-atualizar/empresa-atualizar';
 import { HomePage } from '../home/home';
 import { Camera } from '@ionic-native/camera';
+import { EmpresaPage } from '../empresa/empresa';
 
 /**
  * Generated class for the EmpresaPerfilPage page.
@@ -43,6 +44,12 @@ export class EmpresaPerfilPage {
 
   LetsGoLogin(){
     this.navCtrl.setRoot(HomePage);
+  }
+
+  LetsGoListaPedidosEmpresa() {
+    console.log("asda");
+    this.navCtrl.push(EmpresaPage);
+
   }
 
 }
