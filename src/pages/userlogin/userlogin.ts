@@ -97,7 +97,7 @@ export class UserloginPage {
 	}
 
 	// ao clicar em algum item da busca, leva à pagina do item
-	OpenItem(item: string){
+	OpenItem(item: any){
 		this.navCtrl.push(ProdutoPage, {send: item})
 	}
 
