@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetalhesPage } from '../detalhes/detalhes';
 
 @IonicPage()
 @Component({
@@ -7,7 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'pedidos.html',
 })
 export class PedidosPage {
-	
+
 	purchases: string[];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -15,7 +16,7 @@ export class PedidosPage {
 	}
 
 	getPurchases(){
-		
+
 		//Adicionar aqui todos as compraas do cliente, puxadas do banco de dados
 		this.purchases = [
 			'1 panela',
@@ -27,9 +28,15 @@ export class PedidosPage {
 			'1 batom'
 		];
 	}
-  
+
 	ionViewDidLoad() {
   		console.log('ionViewDidLoad PedidosPage');
 	}
+
+  goToDetails() {
+    this.navCtrl.push(DetalhesPage);
+
+
+  }
 
 }
