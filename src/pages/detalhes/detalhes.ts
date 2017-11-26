@@ -19,8 +19,7 @@ export class DetalhesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public st: Status) {
-    console.log(33333)
-    this.produtos = this.st.pedido_atual.produtos;
+    this.produtos = this.st.pedido_atual['produtos'];
     console.log(this.st);
     console.log(this.produtos);
   }

@@ -7,20 +7,6 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-card>
-        <img [src]="base64Image" *ngIf="base64Image" class = "dp"/>
-      <ion-card-content>
-        <ion-row>
-          <ion-col col-8>Cliente da Silva Sauro </ion-col>
-          	<ion-col align-self-right text-center>
-          			<button ion-button color="primary" (click)="accessGallery()" clear>
-						<ion-icon name="camera"></ion-icon>
-    				</button>
-        		</ion-col>
-      		</ion-row>      
-    	</ion-card-content>
-  	</ion-card>
-
     <ion-list>
 
     	<ion-item>
@@ -28,14 +14,14 @@
         	<ion-input [(ngModel)]="nome" type="text"></ion-input>
       	</ion-item>
 
-		<ion-item>
-			<ion-label floating>CPF</ion-label>
-			<ion-input [(ngModel)]="cpf" type="text"></ion-input>
-		</ion-item>
+    	<ion-item>
+        	<ion-label floating>Email</ion-label>
+        	<ion-input [(ngModel)]="email" type="text"></ion-input>
+      	</ion-item>
 
 		<ion-item>
-			<ion-label floating>Endereço</ion-label>
-			<ion-input [(ngModel)]="end" type="text"></ion-input>
+			<ion-label floating>CPF</ion-label>
+			<ion-input [(ngModel)]="cpf" disabled type="text"></ion-input>
 		</ion-item>
 
 		<ion-item>
@@ -53,6 +39,6 @@
         	<ion-input [(ngModel)]="pass" type="password"></ion-input>
       	</ion-item>
 
-  		<button ion-button (click)="showData()" block class="botao" >Alterar</button>
+  		<button ion-button (click)="save()" block class="botao" >Alterar</button>
     </ion-list>
 </ion-content>

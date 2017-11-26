@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { AlertController } from 'ionic-angular';
+import { Status } from '../../app/status';
 
 
 @IonicPage()
@@ -11,45 +12,28 @@ import { AlertController } from 'ionic-angular';
 })
 export class PerfilPage {
 
-  base64Image:any;
   nome:any;
+  email:any;
   cpf:any;
-  end:any;
   tel:any;
-  dono:any;
   user:any;
   pass:any;
-  tipocadastro:any;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public camera:Camera) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public camera:Camera,
+              public st: Status) {
 	}
  
-	accessGallery(){
-   		this.camera.getPicture({
-    		sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-    		destinationType: this.camera.DestinationType.DATA_URL
-    	}).then((imageData) => {
-      		this.base64Image = 'data:image/jpeg;base64,'+imageData;
-     	}, (err) => {
-      		console.log(err);
-    	});
-  	}
-	
 	ionViewDidLoad() {
-    	console.log('ionViewDidLoad PerfilPage');
+    console.log('ionViewDidLoad PerfilPage');
+    this.nome = this.st.usuario['fields']['nome'];
+    this.email = this.st.usuario['fields']['email'];
+    this.cpf = this.st.usuario['pk'];
+    this.tel = this.st.usuario['fields']['fone'];
+    this.user = this.st.usuario['fields']['login'];
+    this.pass = this.st.usuario['fields']['senha'];
   }
 
-  showData() {
-    console.log(this.tipocadastro);
-    console.log(this.nome);
-    console.log(this.cpf);
-    console.log(this.end);
-    console.log(this.tel);
-    console.log(this.dono);
-    console.log(this.user);
-    console.log(this.pass);
-
+  save() {
     /*FUNÇÃO PARA ALTERAR CADASTRO*/
   }
 

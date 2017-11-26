@@ -12,29 +12,19 @@
     	<ion-card-content>
     		<ion-list>
     			<ion-item>
-          			<img src="../../../assets/imgs/panela.png" class = "produtoimg"/>
+            <img src="{{product.imagens[0].imagem}}" class = "produtoimg"/>
         		</ion-item>
-        		<ion-item class = "small">
-            		Panela de Pressão Amazonasbr
-            		<br> ID : 28312131
+            <ion-item>
+              {{product.nome}} || {{product.marca.nome}}
+              <br> ID : {{product.codigo}}
+              <br> Categoria : {{product.categoria.nome}}
+              <br> Preço : R$ {{product.preco}}
+              <br><br>
         		</ion-item>
         	</ion-list>
+              Descrição: {{product.descricao}}
+  		<button ion-button (click)="add()" block class="botao" >Carrinho</button>
 		</ion-card-content>
 	</ion-card>
-
-	<ion-item>
-    	<ion-label floating>Categoria</ion-label>
-    	<ion-select [(ngModel)]="tpy">
-      		<ion-option value="eletronico">Eletrônico</ion-option>
-      		<ion-option value="eletrodomestico">Eletrodoméstico</ion-option>
-      		<ion-option value="cozinha">Cozinha</ion-option>
-      		<ion-option value="informática">Informática</ion-option>
-		</ion-select>
-  	</ion-item>
-
-  <ion-item>
-    <ion-textarea [(ngModel)]="texto" ></ion-textarea>
-    <ion-label floating>Digite a descrição do produto</ion-label>
-  </ion-item>
 
 </ion-content>
