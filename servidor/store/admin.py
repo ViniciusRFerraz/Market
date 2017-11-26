@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import Marca, Categoria, Produto, Endereco, Cliente, Compra, ProdutoImagem, UsuarioLoja
-from .models import Loja
+from .models import Loja, ProdutoCompra
 
 
 class ProdutoFilterStore(admin.ModelAdmin):
@@ -54,11 +54,22 @@ class UserAdmin(BaseUserAdmin):
     inlines = (UsuarioLojaInline, )
 
 
+class ProdutoCompraInline(admin.TabularInline):
+    model = ProdutoCompra
+    extra = 2
+    verbose_name = 'Produto'
+    verbose_name_plural = 'Produtos'
+
+
+class CompraAdmin(admin.ModelAdmin):
+    inlines = [ProdutoCompraInline, ]
+
+
 admin.site.register(Marca)
 admin.site.register(Categoria)
 admin.site.register(Produto, ProdutoAdmin)
 admin.site.register(Cliente, ClienteAdmin)
-admin.site.register(Compra)
+admin.site.register(Compra, CompraAdmin)
 admin.site.register(Loja)
 
 admin.site.unregister(User)

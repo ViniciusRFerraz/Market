@@ -66,12 +66,12 @@ import { HttpModule } from '@angular/http';
     DetalhesPage
   ],
   providers: [
+    Status,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
     ParallaxDirective,
-    Status,
   ]
 })
 export class AppModule {}

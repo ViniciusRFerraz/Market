@@ -14,22 +14,26 @@
 
 
 <ion-content padding>
-  <ion-card>
-
-   <img src="assets/imgs/bike.jpg"/>
-
+  <ion-card *ngFor='let produto of produtos'> 
+    <img src="{{produto.produto.imagens[0]['imagem']}}"/>
    <ion-card-content>
      <ion-card-title>
-       Super Bicicleta Potente
+       {{produto.produto.nome}} | {{produto.produto.marca.nome}}
      </ion-card-title>
      <p>
-       Valor: 121,90
+       Valor: {{produto.produto.preco}}
      </p>
      <p>
-       Descriçãi asdfbnasudfhnaosudf
+       Peso (KG): {{produto.produto.peso}}
      </p>
      <p>
-<button ion-button clear small>ID: 123124</button>
+       Quantidade: {{produto.quantidade}}
+     </p>
+     <p>
+       Descrição: {{produto.produto.descricao}}
+     </p>
+     <p>
+     <button ion-button clear small>ID: {{produto.produto.codigo}}</button>
  </p>
 </ion-card-content>
 </ion-card>

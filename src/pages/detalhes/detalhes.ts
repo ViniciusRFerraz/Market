@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Status } from '../../app/status';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,8 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detalhes.html',
 })
 export class DetalhesPage {
+  produtos: object[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public st: Status) {
+    console.log(33333)
+    this.produtos = this.st.pedido_atual.produtos;
+    console.log(this.st);
+    console.log(this.produtos);
   }
 
   ionViewDidLoad() {

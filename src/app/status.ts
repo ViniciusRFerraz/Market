@@ -2,9 +2,20 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Status {
-  public URL = 'http://localhost:8000';
-  public URL_STORE = this.URL + '/store';
-  public URL_LOGIN = this.URL_STORE + '/do_login/';
+  public URL: string;
+  public URL_STORE: string;
+  public URL_LOGIN: string;
+  public URL_PEDIDOS: string;
+  public usuario: string;
+  public pedido_atual: string;
 
-  public usuario = null;
+  constructor() {
+    this.URL = 'http://localhost:8000';
+    this.URL_STORE = this.URL + '/store';
+    this.URL_LOGIN = this.URL_STORE + '/do_login/';
+    this.URL_PEDIDOS = 'http://localhost:8000/compras/?cliente='
+
+    this.usuario = null;
+    this.pedido_atual = null;
+  }
 }

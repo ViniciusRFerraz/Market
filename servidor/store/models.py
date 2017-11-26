@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from decimal import Decimal
@@ -110,7 +109,6 @@ class Cliente(models.Model):
 
 class Compra(models.Model):
     codigo = models.AutoField(primary_key=True)
-    valor = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Valor total da compra')
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     status = models.CharField(max_length=2, verbose_name='Status do pedido',
                               choices=(('AP', 'Aguardando pagamento'),
@@ -125,18 +123,12 @@ class Compra(models.Model):
     endereco = models.ForeignKey(Endereco, verbose_name='Endereço de entrega')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    produtos = models.ManyToManyField(
-        Produto,
-        through='Pedido',
-        through_fields=('compra', 'produto')
-    )
 
     def __str__(self):
-        return f'Compra | {self.cliente.nome} | R$ {self.valor:.2f}'
+        return f'Compra | {self.cliente.nome}'
 
 
-class Pedido(models.Model):
-    codigo = models.AutoField(primary_key=True)
-    compra = models.ForeignKey(Compra, on_delete=models.CASCADE)
+class ProdutoCompra(models.Model):
+    compra = models.ForeignKey(Compra, on_delete=models.CASCADE, related_name='produtos')
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField(default=1)

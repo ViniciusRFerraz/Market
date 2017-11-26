@@ -1,4 +1,4 @@
-from .models import Marca, Categoria, Produto, ProdutoImagem, Compra, Cliente, Endereco
+from .models import Marca, Categoria, Produto, ProdutoImagem, Compra, Cliente, Endereco, ProdutoCompra
 import django_filters
 from rest_framework import filters
 from rest_framework import routers, serializers, viewsets
@@ -92,13 +92,27 @@ class ClienteViewSet(viewsets.ModelViewSet):
     filter_fields = ('nome', 'login', 'email')
 
 
+class ProdutoCompraSerializer(serializers.HyperlinkedModelSerializer):
+    produto = ProdutoSerializer(many=False)
+
+    class Meta:
+        model = ProdutoCompra
+        fields = '__all__'
+
+
+class ProdutoCompraViewset(viewsets.ModelViewSet):
+    queryset = ProdutoCompra.objects.all()
+    serializer_class = ProdutoCompraSerializer
+
+
 class CompraSerializer(serializers.HyperlinkedModelSerializer):
     endereco = EnderecoSerializer(many=False, read_only=True)
+    produtos = ProdutoCompraSerializer(many=True, read_only=True)
 
     class Meta:
         model = Compra
-        fields = ('codigo', 'valor', 'cliente', 'status', 'forma_pagamento', 'endereco',
-                  'created_at', 'updated_at')
+        fields = ('codigo', 'cliente', 'status', 'forma_pagamento', 'endereco',
+                  'created_at', 'updated_at', 'produtos')
 
 
 class CompraViewSet(viewsets.ModelViewSet):
@@ -115,3 +129,4 @@ router.register(r'produtos-imagens', ProdutoImagemViewSet)
 router.register(r'enderecos', EnderecoViewSet)
 router.register(r'clientes', ClienteViewSet)
 router.register(r'compras', CompraViewSet)
+router.register(r'compras-produtos', ProdutoCompraViewset)

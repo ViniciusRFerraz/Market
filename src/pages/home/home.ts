@@ -34,7 +34,7 @@ export class HomePage {
       let url = this.status.URL_LOGIN + this.user + '/' + this.pass + '/';
       let data = this.http.get(url);
       data.subscribe(data => {
-        let dados = JSON.parse(data._body);
+        let dados = data.json();
         if (dados.status == 'ok') {
           let usuario = JSON.parse(dados.dados)[0];
           this.status.usuario = usuario;
