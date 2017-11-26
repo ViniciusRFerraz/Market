@@ -20,6 +20,8 @@ import { Camera }                  from '@ionic-native/camera';
 import { ParallaxDirective }       from '../directives/parallax/parallax';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DetalhesPage } from '../pages/detalhes/detalhes';
+import { Status } from './status';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { DetalhesPage } from '../pages/detalhes/detalhes';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +70,8 @@ import { DetalhesPage } from '../pages/detalhes/detalhes';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    ParallaxDirective
+    ParallaxDirective,
+    Status,
   ]
 })
 export class AppModule {}
