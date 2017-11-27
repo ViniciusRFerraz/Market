@@ -1,8 +1,7 @@
 from django.http import JsonResponse
 from django.core import serializers
-from .models import Cliente, Compra
 import json
-from .models import Cliente, Compra, ProdutoCompra, Produto
+from .models import Cliente, Compra, ProdutoCompra, Produto, Endereco
 
 
 def do_login(request, login, senha):
@@ -41,4 +40,15 @@ def update_cliente(request):
     cliente.senha = data['senha']
 
     cliente.save()
+    return JsonResponse({'status': 'ok'})
+
+
+def create_cliente(request):
+    data = json.loads(request.body)
+    end = data.pop('end')
+    cliente = Cliente(**data)
+    cliente.save()
+    end = Endereco(cliente=cliente, nome='Principal', rua=end, bairro='Não informado', cep='Não informado',
+                   cidade='Bauru', estado='SP')
+    end.save()
     return JsonResponse({'status': 'ok'})

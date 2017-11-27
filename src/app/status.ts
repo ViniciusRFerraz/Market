@@ -9,6 +9,7 @@ export class Status {
   public URL_PRODUTOS: string;
   public URL_COMPRA: string;
   public URL_SALVA_CLIENTE: string;
+  public URL_CADASTRA_CLIENTE: string;
   public usuario: object;
   public pedido_atual: object;
   public carrinho;
@@ -21,6 +22,7 @@ export class Status {
     this.URL_PRODUTOS = this.URL + '/produtos/?format=json'
     this.URL_COMPRA = this.URL_STORE + '/compra/';
     this.URL_SALVA_CLIENTE = this.URL_STORE + '/update_cliente/';
+    this.URL_CADASTRA_CLIENTE = this.URL_STORE + '/create_cliente/';
 
     this.usuario = null;
     this.pedido_atual = null;

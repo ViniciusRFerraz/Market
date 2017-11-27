@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Status } from '../../app/status'
+import { Http } from '@angular/http'
 
 @IonicPage()
 @Component({
@@ -16,9 +18,11 @@ export class CadastroPage {
     dono:any;
     user:any;
     pass:any;
+    email:any;
     tipocadastro:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController ) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public alerCtrl: AlertController, public st: Status, public http: Http) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPage');
@@ -35,7 +39,7 @@ export class CadastroPage {
     console.log(this.pass);
 
     if (this.tipocadastro=="cliente"){
-    if (this.nome == null || this.cpf==null || this.end==null || this.tel==null || this.user==null || this.pass==null ){
+    if (this.email == null || this.nome == null || this.cpf==null || this.end==null || this.tel==null || this.user==null || this.pass==null ){
       this.doAlert();
     }
     else {
@@ -64,12 +68,25 @@ export class CadastroPage {
   }
 
   doOkay() {
-    let alert = this.alerCtrl.create({
-      title: 'Sucesso!',
-      message: 'Cadastro efetuado com sucesso!',
-      buttons: ['Ok']
-    });
-    alert.present()
+    var dados = {
+      nome: this.nome,
+      cpf: this.cpf,
+      end: this.end,
+      fone: this.tel,
+      login: this.user,
+      senha: this.pass,
+      email: this.email
+    }
+
+    let req = this.http.post(this.st.URL_CADASTRA_CLIENTE, dados);
+    req.subscribe(data => {
+      let alert = this.alerCtrl.create({
+        title: 'Sucesso!',
+        message: 'Cadastro efetuado com sucesso!',
+        buttons: ['Ok']
+      });
+      alert.present()
+    })
   }
 
 }
