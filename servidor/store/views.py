@@ -30,3 +30,15 @@ def do_compra(request):
         pc.save()
 
     return JsonResponse({'status': 'ok'})
+
+
+def update_cliente(request):
+    data = json.loads(request.body)
+    cliente = Cliente.objects.filter(cpf=data['cpf']).first()
+    cliente.nome = data['nome']
+    cliente.email = data['email']
+    cliente.fone = data['fone']
+    cliente.senha = data['senha']
+
+    cliente.save()
+    return JsonResponse({'status': 'ok'})

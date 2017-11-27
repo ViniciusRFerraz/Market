@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { AlertController } from 'ionic-angular';
 import { Status } from '../../app/status';
+import { Http } from '@angular/http'
 
 
 @IonicPage()
@@ -20,7 +21,7 @@ export class PerfilPage {
   pass:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public camera:Camera,
-              public st: Status) {
+              public st: Status, public http: Http) {
 	}
  
 	ionViewDidLoad() {
@@ -34,7 +35,18 @@ export class PerfilPage {
   }
 
   save() {
-    /*FUNÇÃO PARA ALTERAR CADASTRO*/
+    var dados = {
+      'cpf': this.cpf,
+      'nome': this.nome,
+      'email': this.email,
+      'fone': this.tel,
+      'senha': this.pass
+    }
+
+    var req = this.http.post(this.st.URL_SALVA_CLIENTE, dados);
+    req.subscribe(data => {
+      console.log('salvo');
+    })
   }
 
 }
