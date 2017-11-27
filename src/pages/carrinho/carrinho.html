@@ -8,75 +8,22 @@
 
 <ion-content padding>
 
-  <ion-card>
+  <ion-card *ngFor='let produto of carrinho'>
     <ion-card-content>
-
       <ion-list>
         <ion-item>
-          <img src="../../../assets/imgs/panela.png" class = "produtoimg"/>
+          <img src="{{produto.imagens[0].imagem}}" class = "produtoimg"/>
         </ion-item>
         <ion-item class = "small">
-            Panela de Pressão Amazonasbr
-            <br> ID : 28312131
-              <button ion-button color="danger" clear class = "TrashButton" item-end>
+          {{produto.nome}} | {{produto.marca.nome}}
+            <br> ID : {{produto.codigo}}
+              <button ion-button color="danger" (click)="remove(produto)" clear class = "TrashButton" item-end>
                 <ion-icon name="trash"></ion-icon>
               </button>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Quantidade</ion-label>
-            <ion-input [(ngModel)]="quantidade" type="number"></ion-input>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
-
-	<ion-card>
-    <ion-card-content>
-
-      <ion-list>
-        <ion-item>
-          <img src="../../../assets/imgs/panela.png" class = "produtoimg"/>
-        </ion-item>
-        <ion-item class = "small">
-            Panela de Pressão Amazonasbr
-            <br> ID : 28312131
-              <button ion-button color="danger" clear class = "TrashButton" item-end>
-                <ion-icon name="trash"></ion-icon>
-              </button>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Quantidade</ion-label>
-            <ion-input [(ngModel)]="quantidade" type="number"></ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-	<ion-card>
-    <ion-card-content>
-
-      <ion-list>
-        <ion-item>
-          <img src="../../../assets/imgs/panela.png" class = "produtoimg"/>
-        </ion-item>
-        <ion-item class = "small">
-            Panela de Pressão Amazonasbr
-            <br> ID : 28312131
-              <button ion-button color="danger" clear class = "TrashButton" item-end>
-                <ion-icon name="trash"></ion-icon>
-              </button>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Quantidade</ion-label>
-            <ion-input [(ngModel)]="quantidade" type="number"></ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <button (click)="LetsGoNovoCompra()" ion-button full class="mg">Finalizar Compra</button>
+  <button *ngIf='carrinho && carrinho.length > 0' (click)="LetsGoNovoCompra()" ion-button full class="mg">Finalizar Compra</button>
 
 </ion-content>

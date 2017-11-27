@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserloginPage } from '../userlogin/userlogin'
 import { Status } from '../../app/status'
+import { CarrinhoPage } 	from '../carrinho/carrinho';
 
 @IonicPage()
 @Component({
@@ -22,5 +23,6 @@ export class ProdutoPage {
 
   add() {
     this.st.carrinho.push(this.product);
+  		this.navCtrl.push(CarrinhoPage);
   }
 }

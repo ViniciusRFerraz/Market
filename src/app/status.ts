@@ -7,6 +7,7 @@ export class Status {
   public URL_LOGIN: string;
   public URL_PEDIDOS: string;
   public URL_PRODUTOS: string;
+  public URL_COMPRA: string;
   public usuario: object;
   public pedido_atual: object;
   public carrinho;
@@ -17,6 +18,7 @@ export class Status {
     this.URL_LOGIN = this.URL_STORE + '/do_login/';
     this.URL_PEDIDOS = this.URL + '/compras/?cliente='
     this.URL_PRODUTOS = this.URL + '/produtos/?format=json'
+    this.URL_COMPRA = this.URL_STORE + '/compra/';
 
     this.usuario = null;
     this.pedido_atual = null;
